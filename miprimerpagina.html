@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Universidades y El Ajolote Mexicano</title>
+
+
+
+<style>
+
+    /* --- CONFIGURACIÓN GENERAL DE NAVEGACIÓN --- */
+
+    body {
+
+        margin: 0;
+
+        font-family: Arial, sans-serif;
+
+        text-align: center;
+
+    }
+
+
+
+    /* Contenedor principal para simular cambio de página */
+
+    .vista-pagina {
+
+        display: none; /* Oculto por defecto */
+
+        min-height: 100vh;
+
+        box-sizing: border-box;
+
+    }
+
+
+
+    .vista-pagina.activa {
+
+        display: block; /* Solo se muestra la página activa */
+
+    }
+
+
+
+    /* --- BOTÓN GLOBAL DE CAMBIO DE PÁGINA (ESTILO UNIVERSIDADES) --- */
+
+    .btn-cambio-pantalla {
+
+        display: inline-block;
+
+        padding: 14px 28px;
+
+        background-color: #ffd700;
+
+        color: #222222;
+
+        border: 2px solid #ffffff;
+
+        border-radius: 50px;
+
+        font-size: 16px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+
+        transition: all 0.3s ease;
+
+        margin: 15px auto;
+
+    }
+
+
+
+    .btn-cambio-pantalla:hover {
+
+        transform: scale(1.05);
+
+        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+
+    }
+
+
+
+    /* --- ========================================== --- */
+
+    /* --- ESTILOS DE LA PÁGINA 1: UNIVERSIDADES        --- */
+
+    /* --- ========================================== --- */
+
+    
+
+    .page-section {
+
+        display: none;
+
+        min-height: 100vh;
+
+        box-sizing: border-box;
+
+    }
+
+
+
+    .page-section.active {
+
+        display: block;
+
+    }
+
+
+
+    .p1-header {
+
+        padding: 60px 20px 40px 20px;
+
+        background: rgba(0, 0, 0, 0.35);
+
+    }
+
+
+
+    .p1-header h1 {
+
+        font-size: 42px;
+
+        margin: 0;
+
+    }
+
+
+
+    .p1-header p {
+
+        font-size: 18px;
+
+        margin-top: 10px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+
+    .next-page-btn {
+
+        display: inline-block;
+
+        padding: 14px 28px;
+
+        background-color: #ffffff;
+
+        color: #222222;
+
+        border: none;
+
+        border-radius: 50px;
+
+        font-size: 16px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+
+        transition: all 0.3s ease;
+
+    }
+
+
+
+    .next-page-btn:hover {
+
+        transform: scale(1.05);
+
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+
+    }
+
+
+
+    .p1-section {
+
+        padding: 20px 20px 40px 20px;
+
+    }
+
+
+
+    .p1-card {
+
+        background: white;
+
+        color: black;
+
+        width: 85%;
+
+        max-width: 900px;
+
+        margin: 20px auto;
+
+        padding: 20px;
+
+        border-radius: 15px;
+
+        box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+
+        text-align: left;
+
+    }
+
+
+
+    .p1-footer {
+
+        background: black;
+
+        color: white;
+
+        padding: 20px;
+
+        font-size: 14px;
+
+    }
+
+
+
+    .p1-btn {
+
+        display: inline-block;
+
+        padding: 10px 18px;
+
+        background: #ffd700;
+
+        color: black;
+
+        text-decoration: none;
+
+        border-radius: 10px;
+
+        font-weight: bold;
+
+    }
+
+
+
+    .p1-btn:hover {
+
+        background: #ffdf4d;
+
+    }
+
+
+
+    #section-unam { background: linear-gradient(135deg, #0b3d2e, #145a32); color: white; }
+
+    #section-unam h2 { color: #145a32; }
+
+    #section-unam .next-page-btn { color: #0b3d2e; border: 2px solid #ffd700; background: #ffd700; }
+
+
+
+    #section-uaem { background: linear-gradient(135deg, #006d3c, #003b20); color: white; }
+
+    #section-uaem h2 { color: #006d3c; }
+
+    #section-uaem .next-page-btn { color: #ffffff; background: #003b20; border: 2px solid #ffffff; }
+
+
+
+    #section-ipn { background: linear-gradient(135deg, #8b0000, #2b0000); color: white; }
+
+    #section-ipn h2 { color: #8b0000; }
+
+    #section-ipn .next-page-btn { color: #8b0000; background: #ffffff; }
+
+
+
+    #section-upn { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; }
+
+    #section-upn h2 { color: #1e3c72; }
+
+    #section-upn .p1-card { width: 80%; }
+
+    #section-upn .p1-btn { background: #ffcc00; }
+
+    #section-upn .next-page-btn { color: #1e3c72; background: #ffcc00; }
+
+
+
+    #section-chapingo { background: linear-gradient(135deg, #1b5e20, #003300); color: white; }
+
+    #section-chapingo h2 { color: #1b5e20; }
+
+    #section-chapingo .next-page-btn { color: #1b5e20; background: #ffd700; }
+
+
+
+
+
+    /* --- ========================================== --- */
+
+    /* --- ESTILOS DE LA PÁGINA 2: EL AJOLOTE           --- */
+
+    /* --- ========================================== --- */
+
+    
+
+    #pagina-ajolote {
+
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        background: linear-gradient(180deg, #87ceeb, #a0e0ff);
+
+        color: #333;
+
+        overflow-x: hidden;
+
+        position: relative;
+
+    }
+
+
+
+    .burbujas {
+
+        position: absolute; /* Cambiado a absolute para que se limite a su sección */
+
+        bottom: 0;
+
+        left: 0;
+
+        width: 100%;
+
+        height: 100%;
+
+        z-index: 1;
+
+        pointer-events: none;
+
+    }
+
+
+
+    .burbuja {
+
+        position: absolute;
+
+        bottom: 0;
+
+        background: rgba(255, 255, 255, 0.4);
+
+        border: 1px solid rgba(255, 255, 255, 0.6);
+
+        border-radius: 50%;
+
+        animation: flotar 8s infinite linear;
+
+    }
+
+
+
+    .burbuja:nth-child(1) { left: 10%; width: 30px; height: 30px; animation-duration: 6s; animation-delay: 0s; }
+
+    .burbuja:nth-child(2) { left: 25%; width: 15px; height: 15px; animation-duration: 9s; animation-delay: 2s; }
+
+    .burbuja:nth-child(3) { left: 40%; width: 45px; height: 45px; animation-duration: 7s; animation-delay: 1s; }
+
+    .burbuja:nth-child(4) { left: 55%; width: 20px; height: 20px; animation-duration: 8s; animation-delay: 4s; }
+
+    .burbuja:nth-child(5) { left: 70%; width: 35px; height: 35px; animation-duration: 6s; animation-delay: 3s; }
+
+    .burbuja:nth-child(6) { left: 85%; width: 25px; height: 25px; animation-duration: 10s; animation-delay: 0s; }
+
+    .burbuja:nth-child(7) { left: 90%; width: 15px; height: 15px; animation-duration: 7s; animation-delay: 5s; }
+
+
+
+    @keyframes flotar {
+
+        0% { transform: translateY(0) scale(1); opacity: 0.8; }
+
+        100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+
+    }
+
+
+
+    .p2-contenedor {
+
+        position: relative;
+
+        z-index: 2;
+
+        max-width: 900px;
+
+        margin: 0 auto;
+
+        padding: 40px 20px;
+
+    }
+
+
+
+    .p2-header {
+
+        background-color: rgba(255, 255, 255, 0.85);
+
+        padding: 30px;
+
+        border-radius: 20px;
+
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+        backdrop-filter: blur(5px);
+
+        margin-bottom: 30px;
+
+    }
+
+
+
+    .p2-header h1 { margin: 0; color: #d81b60; font-size: 38px; }
+
+    .p2-header p { margin: 10px 0 0 0; font-size: 18px; color: #555; font-style: italic; }
+
+
+
+    .p2-card {
+
+        background: rgba(255, 255, 255, 0.9);
+
+        border-left: 6px solid #e91e63;
+
+        border-radius: 12px;
+
+        padding: 25px;
+
+        margin-bottom: 25px;
+
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+
+        text-align: left;
+
+    }
+
+
+
+    .p2-card h2 {
+
+        color: #2c3e50;
+
+        margin-top: 0;
+
+        font-size: 22px;
+
+        border-bottom: 2px solid #f8bbd0;
+
+        padding-bottom: 8px;
+
+    }
+
+
+
+    .p2-card p, .p2-card li { font-size: 16px; line-height: 1.6; color: #444; }
+
+    .curiosidades-list li { list-style-type: "✨ "; }
+
+    
+
+    .p2-footer {
+
+        background: rgba(0, 0, 0, 0.6);
+
+        color: white;
+
+        padding: 15px;
+
+        font-size: 14px;
+
+        border-radius: 10px;
+
+        margin-top: 40px;
+
+    }
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<div id="pagina-universidades" class="vista-pagina activa">
+
+
+
+    <div id="section-unam" class="page-section active">
+
+        <header class="p1-header">
+
+            <h1>UNAM - Universidad Nacional Autónoma de México</h1>
+
+            <p>Una de las mejores universidades de América Latina</p>
+
+            <button class="next-page-btn" onclick="goToPage('uaem')">Ir a la UAEM ➔</button>
+
+            <br><br>
+
+            <button class="btn-cambio-pantalla" onclick="cambiarVista('pagina-ajolote')">✨ Ver El Mundo del Ajolote ✨</button>
+
+        </header>
+
+        <section class="p1-section">
+
+            <div class="p1-card">
+
+                <h2>¿Qué es la UNAM?</h2>
+
+                <p>La UNAM es una de las universidades más importantes de América Latina. Se caracteriza por su excelencia académica, investigación científica y gran prestigio internacional.</p>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Misión</h2>
+
+                <p>Formar profesionistas, investigadores y docentes altamente capacitados que contribuyan al desarrollo científico, cultural y social de México.</p>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Oferta educativa</h2>
+
+                <ul>
+
+                    <li>Ingenierías (Civil, Sistemas, Industrial, etc.)</li>
+
+                    <li>Medicina</li>
+
+                    <li>Derecho</li>
+
+                    <li>Arquitectura</li>
+
+                    <li>Artes y Humanidades</li>
+
+                    <li>Ciencias Sociales y Ciencias Exactas</li>
+
+                </ul>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>¿Por qué estudiar en la UNAM?</h2>
+
+                <ul>
+
+                    <li>Prestigio internacional</li>
+
+                    <li>Educación gratuita o de bajo costo</li>
+
+                    <li>Amplias oportunidades de investigación</li>
+
+                    <li>Gran vida estudiantil y cultural</li>
+
+                </ul>
+
+                <a class="p1-btn" href="https://www.unam.mx" target="_blank">Sitio oficial</a>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Ciudad Universitaria</h2>
+
+                <p>La UNAM cuenta con uno de los campus más grandes y hermosos del mundo: Ciudad Universitaria, reconocida como Patrimonio de la Humanidad por la UNESCO.</p>
+
+            </div>
+
+        </section>
+
+        <footer class="p1-footer">© 2026 UNAM - Página informativa</footer>
+
+    </div>
+
+
+
+    <div id="section-uaem" class="page-section">
+
+        <header class="p1-header">
+
+            <h1>UAEM - Universidad Autónoma del Estado de México</h1>
+
+            <p>Educación pública de calidad, investigación y compromiso social</p>
+
+            <button class="next-page-btn" onclick="goToPage('ipn')">Ir al IPN ➔</button>
+
+        </header>
+
+        <section class="p1-section">
+
+            <div class="p1-card">
+
+                <h2>¿Qué es la UAEM?</h2>
+
+                <p>La UAEM es una de las universidades públicas más importantes del Estado de México, reconocida por su calidad académica, investigación y formación integral de estudiantes.</p>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Misión</h2>
+
+                <p>Formar profesionistas críticos, éticos y comprometidos con la sociedad, impulsando la investigación científica y el desarrollo cultural.</p>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Oferta educativa</h2>
+
+                <ul>
+
+                    <li>Medicina</li>
+
+                    <li>Derecho</li>
+
+                    <li>Arquitectura</li>
+
+                    <li>Ingeniería en Computación</li>
+
+                    <li>Psicología</li>
+
+                    <li>Ciencias Sociales y Humanidades</li>
+
+                </ul>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>¿Por qué estudiar en la UAEM?</h2>
+
+                <ul>
+
+                    <li>Prestigio académico en el Estado de México</li>
+
+                    <li>Amplia oferta educativa</li>
+
+                    <li>Investigación científica y tecnológica</li>
+
+                    <li>Compromiso con el desarrollo social</li>
+
+                </ul>
+
+                <a class="p1-btn" href="https://www.uaemex.mx" target="_blank">Sitio oficial</a>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Identidad universitaria</h2>
+
+                <p>La UAEM es reconocida por su lema y su fuerte identidad cultural, representando el orgullo educativo del Estado de México.</p>
+
+            </div>
+
+        </section>
+
+        <footer class="p1-footer">© 2026 UAEM - Página informativa</footer>
+
+    </div>
+
+
+
+    <div id="section-ipn" class="page-section">
+
+        <header class="p1-header">
+
+            <h1>IPN - Instituto Politécnico Nacional</h1>
+
+            <p>Educación tecnológica, ciencia e innovación para México</p>
+
+            <button class="next-page-btn" onclick="goToPage('upn')">Ir a la UPN ➔</button>
+
+        </header>
+
+        <section class="p1-section">
+
+            <div class="p1-card">
+
+                <h2>¿Qué es el IPN?</h2>
+
+                <p>El IPN es una de las instituciones públicas más importantes de México, enfocada en la formación de ingenieros, científicos y profesionales en áreas tecnológicas y de ciencias aplicadas.</p>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Misión</h2>
+
+                <p>Contribuir al desarrollo económico y social del país mediante la formación de profesionistas altamente capacitados en ciencia, tecnología e innovación.</p>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Oferta educativa</h2>
+
+                <ul>
+
+                    <li>Ingeniería en Sistemas Computacionales</li>
+
+                    <li>Ingeniería Mecánica</li>
+
+                    <li>Ingeniería Eléctrica</li>
+
+                    <li>Medicina</li>
+
+                    <li>Ciencias Biológicas</li>
+
+                    <li>Administración y Negocios</li>
+
+                </ul>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>¿Por qué estudiar en el IPN?</h2>
+
+                <ul>
+
+                    <li>Alto nivel académico en ciencias e ingeniería</li>
+
+                    <li>Reconocimiento nacional e internacional</li>
+
+                    <li>Enfoque en innovación tecnológica</li>
+
+                    <li>Amplias oportunidades laborales</li>
+
+                </ul>
+
+                <a class="p1-btn" href="https://www.ipn.mx" target="_blank">Sitio oficial</a>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Escudo y orgullo politécnico</h2>
+
+                <p>El IPN es reconocido por su lema: <strong>"La Técnica al Servicio de la Patria"</strong>, representando su compromiso con el desarrollo de México.</p>
+
+            </div>
+
+        </section>
+
+        <footer class="p1-footer">© 2026 IPN - Página informativa</footer>
+
+    </div>
+
+
+
+    <div id="section-upn" class="page-section">
+
+        <header class="p1-header">
+
+            <h1>Universidad Pedagógica Nacional (UPN)</h1>
+
+            <p>Formando profesionales de la educación en México</p>
+
+            <button class="next-page-btn" onclick="goToPage('chapingo')">Ir a Chapingo ➔</button>
+
+        </header>
+
+        <section class="p1-section">
+
+            <div class="p1-card">
+
+                <h2>¿Qué es la UPN?</h2>
+
+                <p>La UPN es una institución mexicana dedicada a la formación de profesionales en el área educativa. Su objetivo principal es mejorar la calidad de la educación en México mediante la preparación de docentes y especialistas.</p>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Misión</h2>
+
+                <p>Formar profesionales de la educación con alto sentido ético, compromiso social y capacidad para transformar los procesos educativos en el país.</p>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Oferta educativa</h2>
+
+                <ul>
+
+                    <li>Licenciatura en Pedagogía</li>
+
+                    <li>Licenciatura en Psicología Educativa</li>
+
+                    <li>Licenciatura en Educación Preescolar y Primaria</li>
+
+                    <li>Maestrías en Educación</li>
+
+                    <li>Doctorados en investigación educativa</li>
+
+                </ul>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>¿Por qué estudiar en la UPN?</h2>
+
+                <ul>
+
+                    <li>Enfoque en educación y transformación social</li>
+
+                    <li>Docentes altamente capacitados</li>
+
+                    <li>Investigación educativa de alto nivel</li>
+
+                    <li>Amplias oportunidades laborales en el sector educativo</li>
+
+                </ul>
+
+                <a class="p1-btn" href="https://www.upn.mx" target="_blank">Visitar sitio oficial</a>
+
+            </div>
+
+        </section>
+
+        <footer class="p1-footer">© 2026 Universidad Pedagógica Nacional - Página informativa</footer>
+
+    </div>
+
+
+
+    <div id="section-chapingo" class="page-section">
+
+        <header class="p1-header">
+
+            <h1>Universidad Autónoma Chapingo</h1>
+
+            <p>La mejor institución en ciencias agrícolas y desarrollo rural en México</p>
+
+            <button class="next-page-btn" onclick="goToPage('unam')">Regresar a la UNAM ➔</button>
+
+        </header>
+
+        <section class="p1-section">
+
+            <div class="p1-card">
+
+                <h2>¿Qué es Chapingo?</h2>
+
+                <p>La Universidad de Chapingo es una universidad pública especializada en ciencias agrícolas, ambientales y desarrollo rural. Es reconocida en México y América Latina por su enfoque en el campo, la sostenibilidad y la investigación científica.</p>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Historia</h2>
+
+                <p>Sus orígenes se remontan a 1854 como la Escuela Nacional de Agricultura. En 1923 se estableció en la ex-hacienda de Chapingo, Estado de México, donde actualmente se encuentra su campus principal.</p>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Misión</h2>
+
+                <p>Formar profesionales comprometidos con el desarrollo del campo mexicano, la investigación agrícola y el uso sustentable de los recursos naturales.</p>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Oferta educativa</h2>
+
+                <ul>
+
+                    <li>Agronomía</li>
+
+                    <li>Ingeniería Forestal</li>
+
+                    <li>Agroecología</li>
+
+                    <li>Economía Agrícola</li>
+
+                    <li>Medicina Veterinaria y Zootecnia</li>
+
+                    <li>Ingeniería en Irrigación</li>
+
+                    <li>Recursos Naturales Renovables</li>
+
+                </ul>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>¿Por qué estudiar en Chapingo?</h2>
+
+                <ul>
+
+                    <li>Especialización única en el sector agrícola</li>
+
+                    <li>Alta calidad académica e investigación</li>
+
+                    <li>Formación con enfoque social y rural</li>
+
+                    <li>Reconocimiento nacional e internacional</li>
+
+                </ul>
+
+                <a class="p1-btn" href="https://www.chapingo.mx" target="_blank">Sitio oficial</a>
+
+            </div>
+
+            <div class="p1-card">
+
+                <h2>Identidad universitaria</h2>
+
+                <p>Chapingo es conocida por su fuerte compromiso con el campo mexicano y su lema: <strong>“Enseñar la explotación de la tierra, no la del hombre”</strong>.</p>
+
+            </div>
+
+        </section>
+
+        <footer class="p1-footer">© 2026 Universidad Autónoma Chapingo - Página informativa</footer>
+
+    </div>
+
+</div>
+
+
+
+
+
+<div id="pagina-ajolote" class="vista-pagina">
+
+    <div class="burbujas">
+
+        <div class="burbuja"></div>
+
+        <div class="burbuja"></div>
+
+        <div class="burbuja"></div>
+
+        <div class="burbuja"></div>
+
+        <div class="burbuja"></div>
+
+        <div class="burbuja"></div>
+
+        <div class="burbuja"></div>
+
+    </div>
+
+
+
+    <div class="p2-contenedor">
+
+        <header class="p2-header">
+
+            <h1>El Ajolote (Ambystoma mexicanum)</h1>
+
+            <p>El eterno portador de la juventud y símbolo de la biodiversidad mexicana</p>
+
+            <br>
+
+            <button class="btn-cambio-pantalla" style="background-color: #e91e63; color: white;" onclick="cambiarVista('pagina-universidades')">⬅️ Volver a Universidades</button>
+
+        </header>
+
+
+
+        <main>
+
+            <div class="p2-card">
+
+                <h2>¿Qué son los ajolotes?</h2>
+
+                <p>
+
+                    El ajolote es un curioso y emblemático anfibio originario de México. Su nombre proviene del náhuatl <em>Atl</em> (agua) y <em>Xolotl</em> (perro), traduciéndose colectivamente como "perro de agua". Está fuertemente ligado a la mitología mexica, donde representa al dios Xólotl, el dios de la transformación y los gemelos, quien se escondió en el agua adoptando esta forma para evitar ser sacrificado.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="p2-card">
+
+                <h2>Características Principales</h2>
+
+                <ul>
+
+                    <li><strong>Neotenia:</strong> A diferencia de otros anfibios, alcanzan la madurez sexual sin pasar por una metamorfosis completa, manteniendo sus características de renacuajo (como las branquias y la aleta dorsal) durante toda su vida.</li>
+
+                    <li><strong>Branquias externas:</strong> Poseen tres pares de branquias ramificadas que sobresalen de la parte trasera de su cabeza, las cuales simulan una hermosa corona rosada.</li>
+
+                    <li><strong>Respiración múltiple:</strong> Pueden respirar a través de sus branquias, de la piel y también cuentan con pulmones funcionales que utilizan cuando suben a la superficie.</li>
+
+                    <li><strong>Colores:</strong> En estado silvestre suelen ser de color café oscuro, gris o negro. Las variedades albinas y rosadas son comunes en cautiverio.</li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div class="p2-card">
+
+                <h2>Hábitat</h2>
+
+                <p>
+
+                    Viven en sistemas de lagos y canales de aguas templadas que cuenten con abundante vegetación acuática. Necesitan de plantas flotantes y sumergidas para poder adherir sus huevos durante las etapas de reproducción y para protegerse de las corrientes de luz.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="p2-card">
+
+                <h2>¿Dónde se encuentran?</h2>
+
+                <p>
+
+                    La especie más famosa (<em>Ambystoma mexicanum</em>) es estrictamente endémica del complejo lacustre de <strong>Xochimilco y Mixquic</strong>, en el sur de la Ciudad de México. Lamentablemente, debido a la urbanización, la contaminación del agua y la introducción de especies invasoras como la carpa y la tilapía, su hábitat natural se encuentra críticamente reducido.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="p2-card">
+
+                <h2>¿Cuántas especies existen en México?</h2>
+
+                <p>
+
+                    En la República Mexicana habitan alrededor de <strong>17 especies</strong> pertenecientes al género <em>Ambystoma</em>, de las cuales 16 son endémicas de nuestro país. Se distribuyen a lo largo de diferentes estados como Michoacán, Puebla, el Estado de México y la frontera norte, destacando especies como el ajolote de Pátzcuaro (<em>Ambystoma dumerilii</em>) o el ajolote de Alchichica (<em>Ambystoma taylori</em>).
+
+                </p>
+
+            </div>
+
+
+
+            <div class="p2-card">
+
+                <h2>Alimentación</h2>
+
+                <p>
+
+                    Los ajolotes son animales carnívoros. Al no poseer dientes desarrollados para masticar, atrapan a sus presas mediante un sistema de succión rápido. En su entorno natural se alimentan principalmente de:
+
+                </p>
+
+                <ul>
+
+                    <li>Pequeños peces y larvas de insectos.</li>
+
+                    <li>Crustáceos acuáticos (como acociles).</li>
+
+                    <li>Moluscos y gusanos (tubifex).</li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div class="p2-card">
+
+                <h2>Datos Curiosos ✨</h2>
+
+                <ul class="curiosidades-list">
+
+                    <li><strong>Regeneración asombrosa:</strong> Son capaces de regenerar perfectamente sus patas, cola, ojos, mandíbula e incluso partes de su corazón y cerebro sin dejar cicatrices.</li>
+
+                    <li><strong>En el billete de México:</strong> Su gran popularidad y valor biológico lo llevaron a ser la imagen oficial del billete de 50 pesos mexicanos.</li>
+
+                    <li><strong>Longevos en su entorno:</strong> Pueden llegar a vivir entre 10 y 15 años si se encuentran en condiciones óptimas de salud y calidad de agua.</li>
+
+                    <li><strong>Estrellas de la ciencia:</strong> Son uno de los organismos más estudiados en los laboratorios de todo el mundo debido a sus misterios genéticos sobre el rejuvenecimiento celular.</li>
+
+                </ul>
+
+            </div>
+
+        </main>
+
+
+
+        <footer class="p2-footer">
+
+            © 2026 El Ajolote Mexicano - Página Informativa Educativa.
+
+        </footer>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+    // Código original para controlar las sub-páginas de las Universidades
+
+    function goToPage(targetId) {
+
+        const sections = document.querySelectorAll('.page-section');
+
+        sections.forEach(section => {
+
+            section.classList.remove('active');
+
+        });
+
+
+
+        const targetSection = document.getElementById('section-' + targetId);
+
+        if (targetSection) {
+
+            targetSection.classList.add('active');
+
+        }
+
+        window.scrollTo({ top: 0, behavior: 'instant' });
+
+    }
+
+
+
+    // Nuevo código para alternar entre la sección Universidades y Ajolote
+
+    function cambiarVista(idPaginaDestino) {
+
+        // Ocultar ambas secciones globales
+
+        const paginas = document.querySelectorAll('.vista-pagina');
+
+        paginas.forEach(pag => {
+
+            pag.classList.remove('activa');
+
+        });
+
+
+
+        // Mostrar la página seleccionada
+
+        const paginaDestino = document.getElementById(idPaginaDestino);
+
+        if (paginaDestino) {
+
+            paginaDestino.classList.add('activa');
+
+        }
+
+
+
+        // Reajustar el scroll al inicio de la pantalla
+
+        window.scrollTo({ top: 0, behavior: 'instant' });
+
+    }
+
+</script>
+
+
+
+</body>
+
+</html>
